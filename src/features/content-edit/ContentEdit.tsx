@@ -4,6 +4,7 @@ import { selectContent,selectDataTypes, setContent, saveContentAsync } from './c
 import ContentDataSummary from './ContentDataSummary';
 import TagGroup from './TagGroup';
 import ContentDataCreator from './ContentDataCreator';
+import './contentEdit.css';
 
 export default function ContentEdit(props: any){
     let content = useAppSelector(selectContent);
@@ -11,7 +12,7 @@ export default function ContentEdit(props: any){
     let dispatch = useAppDispatch();
 
     return (
-        <div>
+        <div className='edit-form'>
             <form onSubmit={x => x.preventDefault()}>
                 <fieldset>
                     <legend>Content Details</legend>

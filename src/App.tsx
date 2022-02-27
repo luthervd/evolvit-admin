@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import  ContentEdit  from './features/content-edit/ContentEdit';
 import './App.css';
-
+import 'foundation-sites/dist/css/foundation.min.css';
 function App() {
   return (
     <div className="App">
