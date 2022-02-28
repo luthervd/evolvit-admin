@@ -28,20 +28,29 @@ export default function ContentDataCreator(props : any){
     }
     return (
         <div>
-            <fieldset>
-                <legend>Summary</legend>
-                <label>Name</label>
-                <input type="text" value={contentData.name} onChange={x => setContentData({...contentData,name: x.target.value})}/>
-                <label>Description</label>
-                <input type="text" value={contentData.description} onChange={x => setContentData({...contentData,description: x.target.value})}/>
-            </fieldset>
-            <fieldset>
-                <select value={dataType.selectedDataType.name} onChange={x => chooseDataType(x.target.value)}>
-                    {dataType.types.map(x  => <option value={x.name} key={x.name}>{x.name}</option>)}
-                </select>
-                <ContentInput value={contentData.value} dataType={dataType.selectedDataType.name} onChange={alterValue}/>
-            </fieldset>
-            <button onClick={x => handleSave()}>Add</button>
+            <div className="field"> 
+                <label className="label">Name</label>
+                <div className="control">
+                    <input className="input" type="text" value={contentData.name} onChange={x => setContentData({...contentData,name: x.target.value})}/>
+                </div>
+            </div>
+            <div className="field"> 
+                <label className="label">Description</label>
+                <div className="control">
+                    <input className="input" type="text" value={contentData.description} onChange={x => setContentData({...contentData,description: x.target.value})}/>
+                </div>
+            </div>
+            <div className="field"> 
+                <div className="control">
+                    <select className="select" value={dataType.selectedDataType.name} onChange={x => chooseDataType(x.target.value)}>
+                        {dataType.types.map(x  => <option value={x.name} key={x.name}>{x.name}</option>)}
+                    </select>
+                </div>
+                <div className="control">
+                    <ContentInput value={contentData.value} dataType={dataType.selectedDataType.name} onChange={alterValue}/>
+                </div>
+            </div>
+            <button className="button" onClick={x => handleSave()}>Add</button>
         </div>
     )
 }

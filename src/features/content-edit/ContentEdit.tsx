@@ -13,19 +13,20 @@ export default function ContentEdit(props: any){
     return (
         <div>
             <form onSubmit={x => x.preventDefault()}>
-                <fieldset>
-                    <legend>Content Details</legend>
-                    <label>Name:</label>
-                    <input type='text' value={content.name} onChange={x => dispatch(setContent({...content,name: x.target.value}))}/>
-                    <label>Description</label>
-                    <input type='text' value={content.description} onChange={x => dispatch(setContent({...content,description: x.target.value}))}/>
-                </fieldset>
-                <fieldset>
-                    <legend>
-                       Content
-                    </legend>
-                    <ContentDataSummary content={content.data} />
-                </fieldset>
+                    <div className="field">
+                        <label className="label">Name</label>
+                        <div className="control">
+                            <input className="input" type='text' value={content.name} onChange={x => dispatch(setContent({...content,name: x.target.value}))}/>   
+                        </div>
+                    </div>
+                    <div className="field">
+                        <label className="label">Description</label>
+                        <div className="control">
+                            <input className="input" type='text' value={content.description} onChange={x => dispatch(setContent({...content,description: x.target.value}))}/>
+                        </div>
+                    </div>
+              
+                <ContentDataSummary content={content.data} />
                 <fieldset>
                     <legend>
                         Add a value
@@ -33,7 +34,7 @@ export default function ContentEdit(props: any){
                     <ContentDataCreator dataTypes={dataTypes}/>
                 </fieldset>
                 <fieldset>
-                    <button onClick={x => dispatch(saveContentAsync(content))}>Save</button>
+                    <button className="button" onClick={x => dispatch(saveContentAsync(content))}>Save</button>
                 </fieldset>
             </form>
         </div>
