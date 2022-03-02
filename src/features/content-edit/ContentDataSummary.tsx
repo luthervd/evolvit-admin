@@ -4,19 +4,29 @@ import { IContentData } from './Content';
 export default function ContentDataSummary(props : any){
     const items = props.content as IContentData[];
     return (
-        <ul>
+        <table className="table">
+            <thead>
+                <tr>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Descritpiton
+                    </th>
+                    <th>
+                        Value
+                    </th>
+                </tr>
+            </thead>
             {
                 items.map((x, index) => {
-                    return ( <li key={index}>
-                        <div>
-                            <label>Name : {x.name}</label>
-                            <label>Description: {x.description}</label>
-                            <label>Type: {x.cmsType.name}</label>
-                        
-                        </div>
-                    </li>)
+                    return ( <tr key={index}>
+                                <td>{x.name}</td>
+                                <td>{x.description}</td>
+                                <td>{x.cmsType.name}</td>
+                            </tr>)
                 })  
             }
-        </ul>
+        </table>
     )
 }
