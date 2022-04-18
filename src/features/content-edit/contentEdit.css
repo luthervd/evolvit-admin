@@ -1,0 +1,14 @@
+.content-create-container{
+    display: flex;
+}
+
+.content-meta{
+    flex-grow: 2;
+}
+
+.content0list{
+    flex-grow: 2;
+}
+.content-add{
+    flex-grow: 6;
+}

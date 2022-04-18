@@ -1,5 +1,5 @@
 import React from 'react';
-import { IContentData } from './Content';
+import { IContentData } from './ContentModel';
 
 export default function ContentDataSummary(props : any){
     const items = props.content as IContentData[];

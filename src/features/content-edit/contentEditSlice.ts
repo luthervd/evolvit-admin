@@ -1,14 +1,22 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState, AppThunk } from '../../app/store';
-import { IContent, ContentData, IDataType } from './Content';
-import { saveContent } from './contentEditAPI';
+import { IContent, ContentData, IDataType } from './ContentModel';
+import { saveContent, loadContent, updateContent } from './contentEditAPI';
 
 export const saveContentAsync = createAsyncThunk('contentedit/save',async (content: IContent) => {
     let result = await saveContent(content);
     return result;
-})
+});
 
+export const loadContentAsync = createAsyncThunk('contentedit/load',async (id: string) => {
+    let result  = await loadContent(id);
+    return result;
+});
 
+export const updateContentAsync = createAsyncThunk('content/update',async (content: IContent) =>{
+    let result = await updateContent(content);
+    return result;
+});
 
 interface State {
     content: IContent,
@@ -51,12 +59,16 @@ export const contentEditSlice = createSlice({
         }
     },
     extraReducers: (builder) => {
-        builder.addCase(saveContentAsync.pending,(state) => {
+        builder
+        .addCase(saveContentAsync.pending,(state) => {
             state.loading = true;
         })
         .addCase(saveContentAsync.fulfilled,(state,action) => {
             state.loading = false;
             state.content = action.payload;
+        })
+        .addCase(loadContentAsync.fulfilled,(state, action) => {
+           state.content =  action.payload;
         });
     }
 })

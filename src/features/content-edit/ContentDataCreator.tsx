@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import { useAppDispatch } from '../../app/hooks';
 import { addData } from './contentEditSlice';
-import { ContentData, IDataType } from './Content';
+import { ContentData, IDataType } from './ContentModel';
 import ContentInput from './editors/ContentInput';
 
 class DataTypeState{
